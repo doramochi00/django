@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>書籍一覧</title>
+</head>
+
+<body>
+    <h1>書籍一覧</h1>
+    <table border="1">
+        <tr>
+            <th>本の名前</th>
+            <th>作者</th>
+            <th>出版社</th>
+            <th>価格</th>
+        </tr>
+        {% for book in data %} <!-- views.pyで格納したデータを展開。for文で1つずつ取り出す-->
+        <tr>
+            <td>{{ book.book_name }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.price }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
