@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>書籍一覧</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>
+    <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+</head>
+<body>
+    <table id="book" class="table table-bordered">
+        <thead>
+            <tr><th>本の名前</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>価格</th>
+            </tr>
+        </thead>
+    </table>
+<script>
+    $('#book').DataTable({
+        deferRender: true,
+        serverSide: true,
+        processing: true,
+        orderCellsTop: true,
+        responsive: true,
+        ajax: {
+          "url": "/data/",
+          "type": "GET",
+        },
+        columnDefs: [
+          {targets: 0, data: 'book_name'},
+          {targets: 1,  data: 'author' },
+          {targets: 2,  data: 'publisher' },
+          {targets: 3,  data: 'price' },
+        ]
+    });
+</script>
+</body>
+</html>
